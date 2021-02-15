@@ -10,9 +10,9 @@ export function getBook(id: string): Book {
 }
 
 export function createBook(book: Book): Book {
-
+  return
 }
 
 export function updateBook(book: Book): Book {
-  
+  return
 }

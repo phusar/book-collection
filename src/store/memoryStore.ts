@@ -1,12 +1,27 @@
 import { Book } from '../model/book'
+import { Store } from './store'
 
 type BookMemoryStore = Record<string, Book>
-const books: BookMemoryStore = { }
+const books: BookMemoryStore = {}
 
-export function saveBook(book: Book) {
-  books[book.id] = book
-}
+export class MemoryStore implements Store {
+  getBooks() {
+    const result: Book[] = [];
 
-export function deleteBook(id: string) {
-  delete books[id]
+    return result
+  }
+
+  getBook(id: string) {
+    return books[id]
+  }
+
+  saveBook(book: Book) {
+    books[book.id] = book
+    return books[book.id]
+  }
+
+  deleteBook(id: string) {
+    delete books[id]
+    return true
+  }
 }

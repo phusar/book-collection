@@ -5,8 +5,10 @@ export interface Book {
   name: string
   price: number
   description: string
-  authors: [Author]
-  keywords: [string]
+  authors: Author[]
+  keywords: string[]
   ISBN: string
-  categories: [string]
+  categories: string[]
+  length: number
+  publisher: string
 }
