@@ -1,7 +1,7 @@
 import { Author } from './author'
 
 export interface Book {
-  id: string
+  id?: string
   name: string
   price: number
   description: string
