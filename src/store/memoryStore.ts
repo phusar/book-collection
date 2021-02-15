@@ -9,7 +9,9 @@ const books: BookMemoryStore = {}
 export class MemoryStore implements Store {
   getBooks() {
     const result: Book[] = [];
-
+    for (const id in books) {
+      result.push(books[id])
+    }
     return result
   }
 

@@ -31,11 +31,37 @@ describe("memoryStore suite", () => {
     should(getResult).be.deepEqual(testBook)
   })
 
-  it('should generate a new ID and save the book if a book does not contain it', () => {
+  it('should generate a new ID and save the book if it book does not contain an ID', () => {
     let testBookCopy = { ...testBook }
     delete testBookCopy.id
     const saveResult = store.saveBook(testBookCopy)
     should(saveResult.id).not.be.empty()
     should(saveResult.id).not.equal(testBook.id)    
+  })
+
+  it('should return two books from the store', () => {
+    const getResult = store.getBooks()
+    should.exist(getResult)
+    should.exist(getResult[1])
+    should(getResult[0].id).equal(testBook.id)
+    should(getResult[1].id).not.equal(testBook.id)
+    should(getResult.length).equal(2)
+  })
+
+  it('should delete a book from the store', () => {
+    let getResult = store.getBooks()
+    const deleteResult = store.deleteBook(getResult[1].id)
+    getResult = store.getBooks()
+    should(deleteResult).be.ok()
+    should(getResult.length).equal(1)
+    should(getResult[0].id).equal(testBook.id)
+  })
+
+  it('should overwrite an existing book on save', () => {
+    const oldBook = store.getBook(testBook.id)
+    const updatedBook = { ...oldBook }
+    updatedBook.name = 'I changed the name!'
+    const saveResult = store.saveBook(updatedBook)
+    should(saveResult.name).not.equal(testBook.name)
   })
 });
