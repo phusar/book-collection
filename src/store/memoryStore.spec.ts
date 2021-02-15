@@ -32,7 +32,7 @@ describe("memoryStore suite", () => {
   })
 
   it('should generate a new ID and save the book if it book does not contain an ID', () => {
-    let testBookCopy = { ...testBook }
+    const testBookCopy = { ...testBook }
     delete testBookCopy.id
     const saveResult = store.saveBook(testBookCopy)
     should(saveResult.id).not.be.empty()

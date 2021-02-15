@@ -7,7 +7,7 @@ type BookMemoryStore = Record<string, Book>
 const books: BookMemoryStore = {}
 
 export class MemoryStore implements Store {
-  getBooks() {
+  getBooks(): Book[] {
     const result: Book[] = [];
     for (const id in books) {
       result.push(books[id])
@@ -15,11 +15,11 @@ export class MemoryStore implements Store {
     return result
   }
 
-  getBook(id: string) {
+  getBook(id: string): Book {
     return books[id]
   }
 
-  saveBook(book: Book) {
+  saveBook(book: Book): Book {
     if (!book.id) {
       book.id = uuidv4()
     }
@@ -27,7 +27,7 @@ export class MemoryStore implements Store {
     return books[book.id]
   }
 
-  deleteBook(id: string) {
+  deleteBook(id: string): boolean {
     delete books[id]
     return true
   }
