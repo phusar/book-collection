@@ -31,7 +31,7 @@ describe("memoryStore suite", () => {
     should(getResult).be.deepEqual(testBook)
   })
 
-  it('should generate a new ID and save the book if a book does not contain it'4, () => {
+  it('should generate a new ID and save the book if a book does not contain it', () => {
     let testBookCopy = { ...testBook }
     delete testBookCopy.id
     const saveResult = store.saveBook(testBookCopy)
