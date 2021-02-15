@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "922e8774-6648-4164-9b71-693bf191db32",
+		"name": "Book Collection App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Book With ID = 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": \"1\",\r\n   \"name\":\"A Song of Ice and Fire\",\r\n   \"price\":25.24,\r\n   \"description\":\"Winter is coming...\",\r\n   \"authors\":[\r\n      {\r\n         \"name\":\"George R. R.\",\r\n         \"surname\":\"Martin\"\r\n      }\r\n   ],\r\n   \"keywords\":[\r\n      \"game of thrones\",\r\n      \"jon snow\",\r\n      \"winter is coming\"\r\n   ],\r\n   \"ISBN\":\"9780553593716\",\r\n   \"categories\":[\r\n      \"fantasy\",\r\n      \"bestseller\",\r\n      \"tv\"\r\n   ],\r\n   \"length\":864,\r\n   \"publisher\":\"Bantam Media\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Book with random ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\":\"A Song of Ice and Fire\",\r\n   \"price\":25.24,\r\n   \"description\":\"Winter is coming...\",\r\n   \"authors\":[\r\n      {\r\n         \"name\":\"George R. R.\",\r\n         \"surname\":\"Martin\"\r\n      }\r\n   ],\r\n   \"keywords\":[\r\n      \"game of thrones\",\r\n      \"jon snow\",\r\n      \"winter is coming\"\r\n   ],\r\n   \"ISBN\":\"9780553593716\",\r\n   \"categories\":[\r\n      \"fantasy\",\r\n      \"bestseller\",\r\n      \"tv\"\r\n   ],\r\n   \"length\":864,\r\n   \"publisher\":\"Bantam Media\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": \"1\",\r\n   \"name\":\"I changed the name!\",\r\n   \"price\":25.24,\r\n   \"description\":\"Winter is coming...\",\r\n   \"authors\":[\r\n      {\r\n         \"name\":\"George R. R.\",\r\n         \"surname\":\"Martin\"\r\n      }\r\n   ],\r\n   \"keywords\":[\r\n      \"game of thrones\",\r\n      \"jon snow\",\r\n      \"winter is coming\"\r\n   ],\r\n   \"ISBN\":\"9780553593716\",\r\n   \"categories\":[\r\n      \"fantasy\",\r\n      \"bestseller\",\r\n      \"tv\"\r\n   ],\r\n   \"length\":864,\r\n   \"publisher\":\"Bantam Media\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/books/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/books/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/books/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
