@@ -8,6 +8,7 @@ import compression from 'compression'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import helmet from 'helmet'
+import { buildRoutes } from './routes'
 
 const PORT = process.env.PORT || '5000'
 const app: express.Express = express()
@@ -34,6 +35,8 @@ app.use((req, res, next) => {
 
   next()
 })
+
+buildRoutes(app)
 
 app.listen(PORT, () => {
   console.log('Server started on port', PORT)
