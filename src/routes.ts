@@ -1,5 +1,5 @@
 import express from 'express'
-import { BookController } from './controller/books'
+import { BookController } from './controller/bookController'
 import { MemoryStore } from './store/memoryStore'
 
 export function buildRoutes(app: express.Express): void {
