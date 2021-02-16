@@ -1,4 +1,4 @@
-import { Book } from '../model/book'
+import { Book, validateBook } from '../model/book'
 import { Store } from '../store/store'
 import express from 'express'
 
@@ -24,6 +24,12 @@ export class BookController {
 
   postBook(req: express.Request, res: express.Response): void {
     const book = req.body
+    const validationResult = validateBook(book)
+    if (!validationResult.valid) {
+      const errors = validationResult.errors.map(error => error.message)
+      return this.returnError(res, 400, errors)
+    }
+
     const result = this.store.saveBook(book)
 
     return this.returnOk(res, result)
@@ -35,6 +41,12 @@ export class BookController {
 
     if (book && book.id && book.id !== id) {
       return this.returnError(res, 400, 'Book ID in body not matching Book ID in path.')
+    }
+
+    const validationResult = validateBook(book)
+    if (!validationResult.valid) {
+      const errors = validationResult.errors.map(error => error.message)
+      return this.returnError(res, 400, errors)
     }
 
     if (!book.id) {
@@ -60,7 +72,7 @@ export class BookController {
     return this.returnError(res, 404, `Unable to delete book #${id}.`)
   }
 
-  private returnError(res: express.Response, status: number, message: string): void {
+  private returnError(res: express.Response, status: number, message: string | string[]): void {
     res.status(status).json({
       error: message
     })
