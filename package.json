@@ -6,9 +6,8 @@
   "scripts": {
     "compile": "tsc --declaration",
     "lint": "eslint . --ext .ts",
-    "prepublish": "npm run compile",
     "test": "mocha",
-    "start": "tsc && node ./dist/index.js"
+    "start": "npm run compile && node ./dist/index.js"
   },
   "author": "phusar@gmail.com",
   "license": "ISC",

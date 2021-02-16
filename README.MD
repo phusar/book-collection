@@ -1,11 +1,9 @@
-Assignment:
+## A sample book collection application written in node with TypeScript.
 
-BACK-END homework:
-Create a simple RESTful API server in Node.js for the book collection app. Each book has a title, description, and 1-n authors. Created API endpoints should allow search in collection and book management.
+### Instructions
+Test: ``npm run test``  
+Lint: ``npm run lint``  
+Run locally(port 5000): ``npm start``  
+or ``PORT=9999 npm start``   
 
-Solution:
-Routes for
-GET /books
-GET /books/:id
-POST /books
-PUT /books/:id
+Uses an in memory collection instead of a proper database due to time constraints.
