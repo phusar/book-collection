@@ -43,14 +43,14 @@ export class BookController {
       return this.returnError(res, 400, 'Book ID in body not matching Book ID in path.')
     }
 
+    if (!book.id) {
+      book.id = id
+    }
+
     const validationResult = validateBook(book)
     if (!validationResult.valid) {
       const errors = validationResult.errors.map(error => error.message)
       return this.returnError(res, 400, errors)
-    }
-
-    if (!book.id) {
-      book.id = id
     }
 
     const oldBook = this.store.getBook(id)

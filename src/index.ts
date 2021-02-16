@@ -1,5 +1,3 @@
-
-// Import dependencies
 import path from 'path'
 
 import express from 'express'
@@ -13,7 +11,6 @@ import { buildRoutes } from './routes'
 const PORT = process.env.PORT || '5000'
 const app: express.Express = express()
 
-// Apply middleware
 app.use(compression())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
